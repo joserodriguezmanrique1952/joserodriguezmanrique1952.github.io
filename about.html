@@ -1,54 +1,527 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <title>About - Sweety Akter</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweety Akter | Computational Biology & Machine Learning</title>
+<meta name="description" content="Portfolio of Sweety Akter — Computational Biology, Machine Learning, and Bioinformatics researcher.">
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="Sweety Akter | Computational Biology Portfolio">
+<meta property="og:description" content="Biotechnology researcher specializing in machine learning, bioinformatics, and multi-omics integration.">
+<meta property="og:image" content="https://sweety-damn.github.io/profile.jpg">
+<meta property="og:url" content="https://sweety-damn.github.io">
+<meta property="og:type" content="website">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%234fc3f7'>S</text></svg>">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="logo">Sweety Akter</a>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <section class="content">
-        <h1>About Me</h1>
-        
-        <h2>Education</h2>
-        <p><strong>BSc in Biotechnology & Genetic Engineering</strong><br>
-        BRAC University, Dhaka | 2023 – 2027 (Expected)<br>
-        CGPA: 3.47/4.0 (UK 2:1 equivalent)</p>
+<!-- BACKGROUND IMAGE LAYER -->
+<div class="bg-layer" id="bgLayer"></div>
 
-        <h2>Research Experience</h2>
-        <ul>
-            <li>8 research publications in machine learning, computational biology, and bioinformatics</li>
-            <li>IEEE conference paper on Bayesian statistical modelling (BECITHCON 2026)</li>
-            <li>Springer CCIS papers on multi-omics classification and AMR prediction</li>
-            <li>Peer reviewer for Briefings in Bioinformatics (Oxford University Press)</li>
-        </ul>
+<!-- TOP CONTROLS -->
+<div class="top-controls">
+  <select id="langSelect" class="ctrl-btn" aria-label="Language">
+    <option value="en">🇬🇧 English</option>
+    <option value="de">🇩🇪 Deutsch</option>
+    <option value="fr">🇫🇷 Français</option>
+    <option value="no">🇳🇴 Norsk</option>
+    <option value="es">🇪🇸 Español</option>
+    <option value="it">🇮🇹 Italiano</option>
+    <option value="pt">🇵🇹 Português</option>
+    <option value="nl">🇳🇱 Nederlands</option>
+  </select>
+  <button id="themeToggle" class="ctrl-btn" title="Toggle theme"><i class="fas fa-moon"></i></button>
+  <button id="soundToggle" class="ctrl-btn" title="Toggle sound"><i class="fas fa-volume-mute"></i></button>
+  <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.7" class="volume-slider" title="Volume">
+</div>
 
-        <h2>Technical Skills</h2>
-        <ul>
-            <li><strong>Programming:</strong> Python, R, SQL, Git/GitHub</li>
-            <li><strong>Machine Learning:</strong> Deep Learning, Graph Neural Networks, Bayesian Modelling</li>
-            <li><strong>Data Analysis:</strong> Statistical Inference, Predictive Modelling, Data Visualization</li>
-            <li><strong>Bioinformatics:</strong> BLAST, GATK, PyRx, Discovery Studio</li>
-        </ul>
+<audio id="bgAudio" loop>
+  <source src="background.mp3" type="audio/mpeg">
+</audio>
 
-        <h2>Selected Programs</h2>
-        <p><strong>GCI World 2026</strong> — AI & Data Science Programme<br>
-        The University of Tokyo (Matsuo-Iwasawa Laboratory)<br>
-        Selected from 25,000+ applicants across 100+ countries</p>
-    </section>
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-container">
+    <a href="#home" class="logo">Sweety Akter</a>
+    <ul>
+      <li><a href="#about" data-i18n="nav_about">About</a></li>
+      <li><a href="#education" data-i18n="nav_education">Education</a></li>
+      <li><a href="#experience" data-i18n="nav_experience">Experience</a></li>
+      <li><a href="#research" data-i18n="nav_research">Research</a></li>
+      <li><a href="#publications" data-i18n="nav_publications">Publications</a></li>
+      <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
+      <li><a href="#awards" data-i18n="nav_awards">Awards</a></li>
+      <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <footer>
-        <p>© 2026 Sweety Akter | sheikhtanha740@gmail.com</p>
-    </footer>
+<!-- HERO -->
+<header id="home" class="hero">
+  <img src="profile.jpg" alt="Sweety Akter" class="profile-pic">
+  <h1>Sweety Akter</h1>
+  <p class="subtitle" data-i18n="hero_subtitle">Computational Biology · Machine Learning · Bioinformatics</p>
+  <p class="tagline" data-i18n="hero_tagline">Biotechnology student at BRAC University · Peer Reviewer, Oxford University Press · GCI World 2026 Scholar</p>
+
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/sweety-akter-6b11b0286" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/sweety-damn" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+    <a href="https://orcid.org/0009-0006-4238-9394" target="_blank" title="ORCID"><i class="fab fa-orcid"></i></a>
+    <a href="https://scholar.google.com/citations?user=HpidrKAAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+    <a href="https://www.facebook.com/alex.tanhaa.5/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+    <a href="mailto:sheikhtanha740@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+  </div>
+
+  <a href="Sweety_Akter_CV.pdf" class="cv-btn" download><i class="fas fa-download"></i> <span data-i18n="hero_cv">Download CV</span></a>
+</header>
+
+<!-- ABOUT -->
+<section id="about" class="content">
+  <h2><i class="fas fa-user"></i> <span data-i18n="about_title">About Me</span></h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p data-i18n="about_p1">
+        I am a biotechnology student at BRAC University, Bangladesh, with a strong research focus on bioinformatics, machine learning, and multi-omics integration. My work spans computational biology, antimicrobial resistance, cancer genomics, and precision medicine.
+      </p>
+      <p data-i18n="about_p2">
+        My current thesis involves developing a Graph Neural Network framework for patient similarity network integration to predict disease progression using multi-omics data. I am passionate about applying interpretable AI to solve real-world biomedical problems and am committed to advancing research in genomic medicine and therapeutic target discovery.
+      </p>
+      <p data-i18n="about_p3">
+        I serve as a Research Assistant at the Innovative Research Center and am an Associate Member of UNYSAB Bangladesh. I also serve as a peer reviewer for Briefings in Bioinformatics (Oxford University Press) and was selected for the GCI World 2026 AI & Data Science Programme at The University of Tokyo.
+      </p>
+    </div>
+    <div class="about-info">
+      <div class="info-item"><i class="fas fa-map-marker-alt"></i> Mirpur, Dhaka, Bangladesh</div>
+      <div class="info-item"><i class="fas fa-graduation-cap"></i> BRAC University</div>
+      <div class="info-item"><i class="fas fa-flask"></i> Computational Biology Research</div>
+      <div class="info-item"><i class="fas fa-globe"></i> GCI World 2026 Scholar</div>
+      <div class="info-item"><i class="fas fa-envelope"></i> sheikhtanha740@gmail.com</div>
+      <div class="info-item"><i class="fas fa-envelope"></i> sweety.akter@g.bracu.ac.bd</div>
+      <div class="info-item"><i class="fas fa-phone"></i> +8801870783437</div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="content alt-bg">
+  <h2><i class="fas fa-graduation-cap"></i> <span data-i18n="edu_title">Education</span></h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">2023 – 2027 (Expected)</div>
+      <div class="timeline-content">
+        <h3>BSc in Biotechnology & Genetic Engineering</h3>
+        <p><strong>BRAC University</strong>, Dhaka, Bangladesh</p>
+        <p data-i18n="edu_coursework">Relevant Coursework: Bioinformatics, Molecular Biology, Genetics, Biostatistics, Computational Biology, Data Structures, Machine Learning Fundamentals.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2026 (Selected)</div>
+      <div class="timeline-content">
+        <h3>GCI World 2026 — AI & Data Science Programme</h3>
+        <p><strong>The University of Tokyo</strong> (Matsuo-Iwasawa Laboratory), Japan</p>
+        <p data-i18n="edu_gci">Selected from applicants across 100+ countries.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="content">
+  <h2><i class="fas fa-briefcase"></i> <span data-i18n="exp_title">Experience</span></h2>
+
+  <div class="exp-item">
+    <div class="exp-header">
+      <div>
+        <h3>Peer Reviewer</h3>
+        <p class="exp-org">Briefings in Bioinformatics · Oxford University Press</p>
+      </div>
+      <span class="exp-date">Aug 2026 – Present</span>
+    </div>
+    <p data-i18n="exp_reviewer">
+      Serving as a peer reviewer for Briefings in Bioinformatics, a Q1 journal (Impact Factor: 9.5) published by Oxford University Press, specializing in computational biology, bioinformatics, and biomedical research.
+    </p>
+    <ul>
+      <li data-i18n="exp_r1">Critically evaluated manuscripts on AI and deep learning applications in antimicrobial peptide discovery</li>
+      <li data-i18n="exp_r2">Assessed methodological rigor, experimental design, statistical analysis, and scientific novelty</li>
+      <li data-i18n="exp_r3">Provided detailed, constructive feedback to authors to improve manuscript quality</li>
+      <li data-i18n="exp_r4">Recommended editorial decisions based on technical merit and significance</li>
+    </ul>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-header">
+      <div>
+        <h3>Research Assistant</h3>
+        <p class="exp-org">Innovative Research Center (IRC), Dhaka</p>
+      </div>
+      <span class="exp-date">Oct 2025 – Present</span>
+    </div>
+    <p data-i18n="exp_ra">
+      Contributing to ongoing research projects through literature searches, data organization, and collaborative analysis. Building practical research experience in computational biology and bioinformatics workflows.
+    </p>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-header">
+      <div>
+        <h3>Research Intern</h3>
+        <p class="exp-org">Innovative Research Center (IRC)</p>
+      </div>
+      <span class="exp-date">Jun 2025 – Nov 2025</span>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-header">
+      <div>
+        <h3>Campus Ambassador</h3>
+        <p class="exp-org">DeepBio Limited</p>
+      </div>
+      <span class="exp-date">Apr 2026 – Present</span>
+    </div>
+    <p data-i18n="exp_deepbio">
+      Promoting knowledge about bioinformatics and AI in life sciences among university students.
+    </p>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-header">
+      <div>
+        <h3>Campus Ambassador</h3>
+        <p class="exp-org">Dawn of Bioinformatics Limited</p>
+      </div>
+      <span class="exp-date">Sep 2025 – Present</span>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-header">
+      <div>
+        <h3>Associate Member</h3>
+        <p class="exp-org">United Nations Youth and Students Association of Bangladesh (UNYSAB)</p>
+      </div>
+      <span class="exp-date">Jul 2024 – Oct 2025</span>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research" class="content alt-bg">
+  <h2><i class="fas fa-flask"></i> <span data-i18n="res_title">Research</span></h2>
+
+  <div class="research-item">
+    <div class="research-header">
+      <h3>Graph Neural Network Framework for Patient Similarity Network Integration</h3>
+      <span class="research-venue">Undergraduate Thesis</span>
+    </div>
+    <p data-i18n="res_thesis">
+      Developing a Graph Neural Network framework to integrate patient similarity networks for predicting disease progression using multi-omics data. The project aims to improve interpretability and predictive accuracy in genomic medicine.
+    </p>
+  </div>
+
+  <div class="research-item">
+    <div class="research-header">
+      <h3>Bayesian Beta-Mixture Model for Clonal Evolution Inference</h3>
+      <span class="research-venue">IEEE BECITHCON 2026</span>
+    </div>
+    <p><strong>Tools:</strong> Python, PyMC, NumPy, Matplotlib, SciPy</p>
+    <p data-i18n="res_bayes">
+      Developed a hierarchical Bayesian Beta-Mixture model to infer clonal evolution patterns from high-dimensional DNA methylation data in haematological cancers. Implemented MCMC sampling for posterior inference and validated against simulated datasets.
+    </p>
+  </div>
+
+  <div class="research-item">
+    <div class="research-header">
+      <h3>Independent Validation of ML Model for AMR Prediction</h3>
+      <span class="research-venue">Springer CCIS · SEMIT 2026</span>
+    </div>
+    <p><strong>Tools:</strong> Python, Scikit-learn, XGBoost, Pandas, SHAP</p>
+    <p data-i18n="res_amr">
+      Built and independently validated a machine learning framework for antimicrobial resistance risk prediction using multi-omics data from 18,916 bacterial isolates. Identified key genomic features driving resistance through SHAP-based interpretability analysis.
+    </p>
+  </div>
+
+  <div class="research-item">
+    <div class="research-header">
+      <h3>ML-Based Patient Stratification in EGFR-Mutant Lung Adenocarcinoma</h3>
+      <span class="research-venue">Springer CCIS · SEMIT 2026</span>
+    </div>
+    <p><strong>Tools:</strong> Python, Scikit-learn, PCA, t-SNE, UMAP</p>
+    <p data-i18n="res_egfr">
+      Implemented an integrative multi-omics machine learning framework combining genomics, transcriptomics, and epigenomics data to stratify patients with EGFR-mutant lung adenocarcinoma.
+    </p>
+  </div>
+
+  <div class="research-item">
+    <div class="research-header">
+      <h3>CRISPR-Cas9 Guide RNA Design for TP53 R175H Mutation</h3>
+      <span class="research-venue">Preprint · OSF</span>
+    </div>
+    <p data-i18n="res_crispr">
+      Integrative computational design and off-target profiling of a CRISPR-Cas9 guide RNA for precision targeting of the TP53 R175H mutation.
+    </p>
+  </div>
+
+  <div class="research-item">
+    <div class="research-header">
+      <h3>Deep Learning-Driven De Novo Design of Antimicrobial Peptides</h3>
+      <span class="research-venue">Preprint · OSF</span>
+    </div>
+    <p data-i18n="res_amp">
+      Systematic review of architectures, serum conditions, and activity retention for deep learning-driven de novo design of antimicrobial peptides active in human serum.
+    </p>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications" class="content">
+  <h2><i class="fas fa-book"></i> <span data-i18n="pub_title">Publications</span></h2>
+  <p class="section-intro" data-i18n="pub_intro">Selected peer-reviewed work in machine learning, computational biology, and bioinformatics.</p>
+
+  <div class="pub">
+    <span class="pub-year">2026</span>
+    <h3>Aplasia cutis congenita with fetus papyraceus (Frieden classification Type V) — systematic review of literature and reported cases from 1990 to 2025 with a proposed revised diagnostic criteria and management algorithm</h3>
+    <p><strong>European Journal of Pediatrics</strong> — DOI: 10.1007/s00431-026-07304-8</p>
+    <a href="https://doi.org/10.1007/s00431-026-07304-8" target="_blank">View Publication</a>
+  </div>
+
+  <div class="pub">
+    <span class="pub-year">2026</span>
+    <h3>Integrating AI-Driven Diagnostics in Arrhythmia Care to Enhance Patient Outcomes: A Narrative Review</h3>
+    <p><strong>Cureus</strong> — DOI: 10.7759/cureus.113138</p>
+    <a href="https://doi.org/10.7759/cureus.113138" target="_blank">View Publication</a>
+  </div>
+
+  <div class="pub">
+    <span class="pub-year">2026</span>
+    <h3>Fetal Multicystic Dysplastic Kidney and Its Effect on Post-natal Quality of Life: A Literature Review</h3>
+    <p><strong>Cureus</strong> — DOI: 10.7759/cureus.110488</p>
+    <a href="https://doi.org/10.7759/cureus.110488" target="_blank">View Publication</a>
+  </div>
+
+  <div class="pub">
+    <span class="pub-year">2027</span>
+    <h3>Independent Validation and Clinical Risk Stratification of a Pre-Trained k-mer Based Machine Learning Model for Antimicrobial Resistance Prediction Using 18,916 Bacterial Isolates</h3>
+    <p><strong>Springer CCIS</strong> — DOI: 10.1007/978-3-032-39711-9_24</p>
+    <a href="https://doi.org/10.1007/978-3-032-39711-9_24" target="_blank">View Publication</a>
+  </div>
+
+  <div class="pub">
+    <span class="pub-year">2027</span>
+    <h3>Machine Learning-Based Patient Stratification Using Multi-omics Data in EGFR-Mutant Lung Adenocarcinoma: A Systematic Review and Framework Proposal</h3>
+    <p><strong>Springer CCIS</strong> — DOI: 10.1007/978-3-032-39711-9_23</p>
+    <a href="https://doi.org/10.1007/978-3-032-39711-9_23" target="_blank">View Publication</a>
+  </div>
+
+  <div class="pub">
+    <span class="pub-year">2026</span>
+    <h3>Deep Learning–Driven De Novo Design of Antimicrobial Peptides Active in Human Serum: A Systematic Review of Architectures, Serum Conditions, and Activity Retention</h3>
+    <p><strong>OSF Preprint</strong> — DOI: 10.17605/OSF.IO/8ZE2Q</p>
+    <a href="https://doi.org/10.17605/OSF.IO/8ZE2Q" target="_blank">View Preprint</a>
+  </div>
+
+  <div class="pub">
+    <span class="pub-year">2026</span>
+    <h3>Precision Targeting of the TP53 R175H Mutation: Integrative Computational Design and Off-Target Profiling of a CRISPR-Cas9 Guide RNA</h3>
+    <p><strong>OSF Preprint</strong> — DOI: 10.17605/OSF.IO/58TPC</p>
+    <a href="https://doi.org/10.17605/OSF.IO/58TPC" target="_blank">View Preprint</a>
+  </div>
+
+  <p class="more"><a href="https://orcid.org/0009-0006-4238-9394" target="_blank" data-i18n="pub_more">See all publications on ORCID</a></p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="content alt-bg">
+  <h2><i class="fas fa-cogs"></i> <span data-i18n="skill_title">Skills</span></h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <i class="fas fa-dna"></i>
+      <h3>Bioinformatics Pipelines</h3>
+      <p>Pipeline development, NGS analysis, sequence alignment, genome annotation</p>
+    </div>
+    <div class="skill-card">
+      <i class="fas fa-code"></i>
+      <h3>Programming</h3>
+      <p>Python, R, Perl, SQL, Git/GitHub, Bash</p>
+    </div>
+    <div class="skill-card">
+      <i class="fas fa-brain"></i>
+      <h3>Machine Learning</h3>
+      <p>Deep Learning, Graph Neural Networks, Bayesian Modelling, XGBoost, Scikit-learn</p>
+    </div>
+    <div class="skill-card">
+      <i class="fas fa-chart-bar"></i>
+      <h3>Data Analysis</h3>
+      <p>Statistical analysis, data visualization, MCMC, SHAP</p>
+    </div>
+    <div class="skill-card">
+      <i class="fas fa-tools"></i>
+      <h3>Bioinformatics Tools</h3>
+      <p>BLAST, GATK, PyRx, Discovery Studio</p>
+    </div>
+    <div class="skill-card">
+      <i class="fas fa-cloud"></i>
+      <h3>Cloud Computing</h3>
+      <p>AWS, Google Cloud (basics)</p>
+    </div>
+    <div class="skill-card">
+      <i class="fas fa-comments"></i>
+      <h3>Communication & Leadership</h3>
+      <p>Scientific writing, peer review, team collaboration</p>
+    </div>
+    <div class="skill-card">
+      <i class="fas fa-language"></i>
+      <h3>Languages</h3>
+      <p>Bengali (Native), English (Fluent), German (Basic)</p>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards" class="content">
+  <h2><i class="fas fa-trophy"></i> <span data-i18n="award_title">Awards & Achievements</span></h2>
+  <div class="awards-list">
+    <div class="award-item">
+      <i class="fas fa-award"></i>
+      <div>
+        <h3>Duke of Edinburgh Award — Bronze</h3>
+        <p>Completed the Bronze level of the International Award for Young People.</p>
+        <img src="duke-bronze.jpg" alt="Duke of Edinburgh Bronze Award" class="award-img">
+      </div>
+    </div>
+    <div class="award-item">
+      <i class="fas fa-trophy"></i>
+      <div>
+        <h3>University Sports Award</h3>
+        <p>Recognized by the university for outstanding achievement and dedication in sports.</p>
+        <img src="sports-award.jpg" alt="University Sports Award" class="award-img">
+      </div>
+    </div>
+    <div class="award-item">
+      <i class="fas fa-globe"></i>
+      <div>
+        <h3>GCI World 2026 Scholar</h3>
+        <p>Selected for the AI & Data Science Programme at The University of Tokyo from applicants across 100+ countries.</p>
+      </div>
+    </div>
+    <div class="award-item">
+      <i class="fas fa-pen-fancy"></i>
+      <div>
+        <h3>Peer Reviewer — Briefings in Bioinformatics</h3>
+        <p>Invited peer reviewer for Oxford University Press journal.</p>
+      </div>
+    </div>
+    <div class="award-item">
+      <i class="fas fa-lightbulb"></i>
+      <div>
+        <h3>CRISPR-Cas9 Idea Finalist</h3>
+        <p>Finalist in the CRISPR-Cas9 Idea Competition at BRAC University.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="content alt-bg">
+  <h2><i class="fas fa-certificate"></i> <span data-i18n="cert_title">Certifications & Courses</span></h2>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <h3>Bioinformatics Specialization</h3>
+      <p>University of Geneva via Coursera</p>
+    </div>
+    <div class="cert-card">
+      <h3>Bioinformatics Course</h3>
+      <p>Plasma Cell Research</p>
+    </div>
+    <div class="cert-card">
+      <h3>CRISPR-Cas9 Idea Finalist</h3>
+      <p>BRAC University</p>
+    </div>
+    <div class="cert-card">
+      <h3>Duke of Edinburgh Award</h3>
+      <p>Bronze Level</p>
+    </div>
+    <div class="cert-card">
+      <h3>Leadership Programs</h3>
+      <p>Harvard, UNICEF, HP LIFE</p>
+    </div>
+    <div class="cert-card">
+      <h3>Medi Hack</h3>
+      <p>Devpost — Issued Aug 2025</p>
+    </div>
+    <div class="cert-card">
+      <h3>International MUN</h3>
+      <p>Participant — Oct 2024</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXTRACURRICULAR -->
+<section id="extracurricular" class="content">
+  <h2><i class="fas fa-users"></i> <span data-i18n="extra_title">Extracurricular Activities</span></h2>
+  <div class="extra-list">
+    <div class="extra-item">
+      <h3>Campus Ambassador — DeepBio Limited</h3>
+      <p>Promoting bioinformatics and AI awareness in life sciences among university students.</p>
+    </div>
+    <div class="extra-item">
+      <h3>Campus Ambassador — Dawn of Bioinformatics Limited</h3>
+      <p>Engaging students with bioinformatics resources and career pathways.</p>
+    </div>
+    <div class="extra-item">
+      <h3>Associate Member — UNYSAB Bangladesh</h3>
+      <p>United Nations Youth and Students Association of Bangladesh.</p>
+    </div>
+    <div class="extra-item">
+      <h3>International MUN Participant</h3>
+      <p>Model United Nations — 2024</p>
+    </div>
+    <div class="extra-item">
+      <h3>Leadership Programs</h3>
+      <p>Harvard, UNICEF, HP LIFE</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="content alt-bg">
+  <h2><i class="fas fa-paper-plane"></i> <span data-i18n="contact_title">Get in Touch</span></h2>
+  <p class="section-intro" data-i18n="contact_intro">I am open to research collaborations, graduate opportunities, and quantitative finance roles.</p>
+  <div class="contact-grid">
+    <a href="mailto:sheikhtanha740@gmail.com" class="contact-card">
+      <i class="fas fa-envelope"></i>
+      <h3 data-i18n="contact_email">Email</h3>
+      <p>sheikhtanha740@gmail.com</p>
+    </a>
+    <a href="mailto:sweety.akter@g.bracu.ac.bd" class="contact-card">
+      <i class="fas fa-envelope"></i>
+      <h3 data-i18n="contact_uni_email">University Email</h3>
+      <p>sweety.akter@g.bracu.ac.bd</p>
+    </a>
+    <a href="tel:+8801870783437" class="contact-card">
+      <i class="fas fa-phone"></i>
+      <h3 data-i18n="contact_phone">Phone</h3>
+      <p>+880 1870 783437</p>
+    </a>
+    <a href="https://www.linkedin.com/in/sweety-akter-6b11b0286" target="_blank" class="contact-card">
+      <i class="fab fa-linkedin"></i>
+      <h3>LinkedIn</h3>
+      <p>sweety-akter</p>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Sweety Akter · Computational Biology · Machine Learning · Bioinformatics</p>
+  <p class="footer-sub">Mirpur, Dhaka, Bangladesh</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
