@@ -1,3 +1,8 @@
+/* ============================================
+   SWEETY AKTER — PORTFOLIO SCRIPT
+   Language Switch | Theme Toggle | Background Sound
+   ============================================ */
+
 // ===== TRANSLATIONS =====
 const translations = {
   en: {
@@ -57,9 +62,13 @@ const translations = {
     about_p2: "Meine aktuelle Thesis befasst sich mit der Entwicklung eines Graph Neural Network Frameworks zur Integration von Patient-Ähnlichkeitsnetzwerken.",
     about_p3: "Ich arbeite als Research Assistant am Innovative Research Center und bin assoziiertes Mitglied von UNYSAB Bangladesh. Außerdem bin ich Peer Reviewer für Briefings in Bioinformatics (Oxford University Press).",
     edu_title: "Ausbildung",
+    edu_coursework: "Relevante Kurse: Bioinformatik, Molekularbiologie, Genetik, Biostatistik, Computational Biology.",
+    edu_gci: "Ausgewählt aus Bewerbern aus über 100 Ländern.",
     exp_title: "Erfahrung",
     res_title: "Forschung",
     pub_title: "Publikationen",
+    pub_intro: "Ausgewählte peer-reviewte Arbeiten.",
+    pub_more: "Alle Publikationen auf ORCID",
     skill_title: "Fähigkeiten",
     award_title: "Auszeichnungen",
     cert_title: "Zertifikate & Kurse",
@@ -84,9 +93,13 @@ const translations = {
     about_p2: "Ma thèse actuelle porte sur le développement d'un cadre de réseau de neurones graphiques pour l'intégration des réseaux de similarité des patients.",
     about_p3: "Je travaille comme assistante de recherche à l'Innovative Research Center et suis membre associée de UNYSAB Bangladesh.",
     edu_title: "Formation",
+    edu_coursework: "Cours pertinents : Bioinformatique, Biologie Moléculaire, Génétique, Biostatistique.",
+    edu_gci: "Sélectionnée parmi des candidats de plus de 100 pays.",
     exp_title: "Expérience",
     res_title: "Recherche",
     pub_title: "Publications",
+    pub_intro: "Travaux sélectionnés évalués par les pairs.",
+    pub_more: "Toutes les publications sur ORCID",
     skill_title: "Compétences",
     award_title: "Distinctions",
     cert_title: "Certifications & Cours",
@@ -111,9 +124,13 @@ const translations = {
     about_p2: "Min nåværende avhandling innebærer å utvikle et Graph Neural Network-rammeverk for integrasjon av pasientlikhetsnettverk.",
     about_p3: "Jeg jobber som forskningsassistent ved Innovative Research Center og er assosiert medlem av UNYSAB Bangladesh.",
     edu_title: "Utdanning",
+    edu_coursework: "Relevante emner: Bioinformatikk, Molekylærbiologi, Genetikk, Biostatistikk.",
+    edu_gci: "Valgt ut blant søkere fra over 100 land.",
     exp_title: "Erfaring",
     res_title: "Forskning",
     pub_title: "Publikasjoner",
+    pub_intro: "Utvalgte fagfellevurderte arbeider.",
+    pub_more: "Alle publikasjoner på ORCID",
     skill_title: "Ferdigheter",
     award_title: "Priser",
     cert_title: "Sertifiseringer & Kurs",
@@ -123,55 +140,92 @@ const translations = {
   }
 };
 
-// ===== LANGUAGE SWITCH =====
-const langSelect = document.getElementById('langSelect');
-langSelect.addEventListener('change', (e) => {
-  const lang = e.target.value;
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (translations[lang] && translations[lang][key]) {
-      el.textContent = translations[lang][key];
-    }
-  });
-  document.documentElement.lang = lang;
-});
+// ===== INITIALIZE ON PAGE LOAD =====
+document.addEventListener('DOMContentLoaded', function () {
 
-// ===== THEME TOGGLE =====
-const themeToggle = document.getElementById('themeToggle');
-const html = document.documentElement;
-const savedTheme = localStorage.getItem('theme') || 'light';
-html.setAttribute('data-theme', savedTheme);
-updateThemeIcon(savedTheme);
+  console.log('Portfolio script loaded');
 
-themeToggle.addEventListener('click', () => {
-  const current = html.getAttribute('data-theme');
-  const next = current === 'light' ? 'dark' : 'light';
-  html.setAttribute('data-theme', next);
-  localStorage.setItem('theme', next);
-  updateThemeIcon(next);
-});
-
-function updateThemeIcon(theme) {
-  const icon = themeToggle.querySelector('i');
-  icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-}
-
-// ===== BACKGROUND SOUND =====
-const soundToggle = document.getElementById('soundToggle');
-const bgAudio = document.getElementById('bgAudio');
-let soundOn = false;
-
-soundToggle.addEventListener('click', () => {
-  soundOn = !soundOn;
-  const icon = soundToggle.querySelector('i');
-  if (soundOn) {
-    bgAudio.volume = 0.2;
-    bgAudio.play().catch(() => {
-      console.log('Audio file not found. Add background.mp3 to enable sound.');
+  // ===== LANGUAGE SWITCH =====
+  const langSelect = document.getElementById('langSelect');
+  if (langSelect) {
+    langSelect.addEventListener('change', function (e) {
+      const lang = e.target.value;
+      console.log('Language switched to:', lang);
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+      document.documentElement.lang = lang;
     });
-    icon.className = 'fas fa-volume-up';
-  } else {
-    bgAudio.pause();
-    icon.className = 'fas fa-volume-mute';
+  }
+
+  // ===== THEME TOGGLE =====
+  const themeToggle = document.getElementById('themeToggle');
+  const html = document.documentElement;
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  html.setAttribute('data-theme', savedTheme);
+
+  function updateThemeIcon(theme) {
+    if (!themeToggle) return;
+    const icon = themeToggle.querySelector('i');
+    if (icon) {
+      icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+    }
+  }
+  updateThemeIcon(savedTheme);
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      const current = html.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateThemeIcon(next);
+      console.log('Theme switched to:', next);
+    });
+  }
+
+  // ===== BACKGROUND SOUND =====
+  const soundToggle = document.getElementById('soundToggle');
+  const bgAudio = document.getElementById('bgAudio');
+
+  console.log('soundToggle found:', !!soundToggle);
+  console.log('bgAudio found:', !!bgAudio);
+
+  if (!soundToggle) {
+    console.error('ERROR: soundToggle button not found in HTML');
+  }
+  if (!bgAudio) {
+    console.error('ERROR: bgAudio element not found in HTML');
+  }
+
+  if (soundToggle && bgAudio) {
+    let soundOn = false;
+    bgAudio.volume = 0.3;
+
+    soundToggle.addEventListener('click', function () {
+      console.log('Sound button clicked. soundOn =', soundOn);
+      const icon = soundToggle.querySelector('i');
+
+      if (!soundOn) {
+        bgAudio.play()
+          .then(function () {
+            soundOn = true;
+            if (icon) icon.className = 'fas fa-volume-up';
+            console.log('Music is playing');
+          })
+          .catch(function (err) {
+            console.error('Audio play failed:', err);
+            alert('Could not play audio.\nError: ' + err.message);
+          });
+      } else {
+        bgAudio.pause();
+        soundOn = false;
+        if (icon) icon.className = 'fas fa-volume-mute';
+        console.log('Music paused');
+      }
+    });
   }
 });
