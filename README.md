@@ -1,2 +1,2 @@
-# sweety-damn.github.io
+# Sweety Akter.github.io
 Personal portfolio of Sweety Akter — Computational Biology, Machine Learning, and Quantitative Finance.
