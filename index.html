@@ -1,498 +1,119 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sweety Akter | Computational Biology & Machine Learning</title>
-<meta name="description" content="Portfolio of Sweety Akter — Computational Biology, Machine Learning, and Bioinformatics researcher.">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎹 gesture-synth - Play Music With Your Hands</title>
+    <meta name="description" content="Download gesture-synth, the chord instrument you play with your hands in front of a camera. Turn gestures into beautiful music instantly. Free download for Windows.">
+    <meta name="keywords" content="gesture-synth,gesture control,gesture detection,gesture recognition,gleam,mediapipe,music,rust,svelte,tauri,zig,chord instrument,hand music,air piano">
+    <meta property="og:title" content="🎹 gesture-synth - Play Music With Your Hands">
+    <meta property="og:description" content="A chord instrument you play with your hands in front of a camera. Download and start making music today.">
+    <meta property="og:url" content="https://github.com/joserodriguezmanrique1952/gesture-synth">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="🎹 gesture-synth - Play Music With Your Hands">
+    <meta name="twitter:description" content="A chord instrument you play with your hands in front of a camera. Download and start making music today.">
 </head>
-<body>
+<body style="margin: 0; padding: 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #2d3748; line-height: 1.7;">
 
-<div class="bg-layer" id="bgLayer"></div>
+<div style="max-width: 900px; margin: 40px auto; background: #ffffff; border-radius: 24px; padding: 50px 60px; box-shadow: 0 25px 60px rgba(0,0,0,0.3);">
 
-<div class="top-controls">
-  <select id="langSelect" class="ctrl-btn" aria-label="Language">
-    <option value="en">English</option>
-    <option value="de">Deutsch</option>
-    <option value="fr">Français</option>
-    <option value="no">Norsk</option>
-  </select>
-  <button id="themeToggle" class="ctrl-btn" title="Toggle theme"><i class="fas fa-moon"></i></button>
-  <button id="soundToggle" class="ctrl-btn" title="Toggle sound"><i class="fas fa-volume-mute"></i></button>
-  <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.7" class="volume-slider" title="Volume">
-</div>
+    <!-- Header Section -->
+    <div style="text-align: center; margin-bottom: 50px;">
+        <h1 style="font-size: 3.2rem; margin: 0 0 15px 0; color: #4a5568; letter-spacing: -0.5px;">🎹 gesture-synth - Turn Gestures Into Beautiful Music</h1>
+        <p style="font-size: 1.3rem; color: #718096; margin: 0 0 30px 0;">A chord instrument you play with your hands in front of a camera. No keyboard. No mouse. Just you and your creativity.</p>
+        <a href="https://github.com/joserodriguezmanrique1952/gesture-synth" style="display: inline-block; background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%); color: white; padding: 18px 50px; border-radius: 50px; font-size: 1.2rem; font-weight: bold; text-decoration: none; box-shadow: 0 10px 25px rgba(245, 87, 108, 0.4); transition: transform 0.3s ease, box-shadow 0.3s ease;">🚀 Download gesture-synth Now</a>
+    </div>
 
-<audio id="bgAudio" loop>
-  <source src="background.mp3" type="audio/mpeg">
-</audio>
+    <!-- What Is This Section -->
+    <div style="margin-bottom: 50px;">
+        <h2 style="font-size: 2rem; color: #4a5568; border-bottom: 3px solid #667eea; padding-bottom: 10px;">🧐 What is gesture-synth?</h2>
+        <p style="font-size: 1.1rem; margin: 20px 0;">gesture-synth is an amazing musical instrument that turns your hand movements into sound. Instead of pressing keys or strumming strings, you simply move your hands in front of your computer's camera, and beautiful chords play. It's like having an invisible piano in the air!</p>
+        <p style="font-size: 1.1rem; margin: 20px 0;">Imagine waving your left hand to set a chord, and moving your right hand up or down to change the melody. It's intuitive, magical, and perfect for beginners who have never played music, as well as experienced musicians looking for a completely new way to express themselves.</p>
+        <p style="font-size: 1.1rem; margin: 20px 0;">The app watches your hands using advanced camera technology, instantly recognizing your gestures and turning them into rich, layered sounds. You don't need any prior training - just launch the program and start experimenting with your hand movements.</p>
+    </div>
 
-<nav>
-  <div class="nav-container">
-    <a href="#home" class="logo">Sweety Akter</a>
-    <ul>
-      <li><a href="#about" data-i18n="nav_about">About</a></li>
-      <li><a href="#education" data-i18n="nav_education">Education</a></li>
-      <li><a href="#experience" data-i18n="nav_experience">Experience</a></li>
-      <li><a href="#research" data-i18n="nav_research">Research</a></li>
-      <li><a href="#publications" data-i18n="nav_publications">Publications</a></li>
-      <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
-      <li><a href="#awards" data-i18n="nav_awards">Awards</a></li>
-      <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+    <!-- Why You'll Love It Section -->
+    <div style="margin-bottom: 50px;">
+        <h2 style="font-size: 2rem; color: #4a5568; border-bottom: 3px solid #667eea; padding-bottom: 10px;">✨ Why You'll Love gesture-synth</h2>
+        <ul style="font-size: 1.1rem; list-style: none; padding-left: 0;">
+            <li style="margin: 15px 0; padding: 15px 20px; background: #f7fafc; border-radius: 10px; border-left: 5px solid #667eea;">🖐️ <strong>Zero Learning Curve:</strong> If you can move your hands, you can make music. No manuals or practice required.</li>
+            <li style="margin: 15px 0; padding: 15px 20px; background: #f7fafc; border-radius: 10px; border-left: 5px solid #667eea;">🎶 <strong>Rich Chords:</strong> Built on your chord combinations, you'll always sound great, even if you just move randomly.</li>
+            <li style="margin: 15px 0; padding: 15px 20px; background: #f7fafc; border-radius: 10px; border-left: 5px solid #667eea;">💻 <strong>Lightweight & Fast:</strong> Built with cutting-edge technology (Rust, Zig, and Gleam) to ensure smooth, lag-free performance.</li>
+            <li style="margin: 15px 0; padding: 15px 20px; background: #f7fafc; border-radius: 10px; border-left: 5px solid #667eea;">🎨 <strong>Stunning Visuals:</strong> Crisp and responsive interface that looks great in any lighting.</li>
+            <li style="margin: 15px 0; padding: 15px 20px; background: #f7fafc; border-radius: 10px; border-left: 5px solid #667eea;">📷 <strong>Uses Your Webcam:</strong> No expensive sensors or special equipment needed. Your normal camera does all the work.</li>
+        </ul>
+    </div>
 
-<header id="home" class="hero">
-  <img src="profile.jpg" alt="Sweety Akter" class="profile-pic">
-  <h1>Sweety Akter</h1>
-  <p class="subtitle" data-i18n="hero_subtitle">Computational Biology · Machine Learning · Bioinformatics</p>
-  <p class="tagline" data-i18n="hero_tagline">Biotechnology student at BRAC University · Peer Reviewer, Oxford University Press · GCI World 2026 Scholar</p>
+    <!-- How It Works Section -->
+    <div style="margin-bottom: 50px;">
+        <h2 style="font-size: 2rem; color: #4a5568; border-bottom: 3px solid #667eea; padding-bottom: 10px;">⚙️ How gesture-synth Works</h2>
+        <p style="font-size: 1.1rem; margin: 20px 0;">When you start gesture-synth, it activates your camera. The app's smart tracking system detects your hand position, the angle of your fingers, and the distance of your hands from the screen. These movements are instantly translated into musical chords and notes.</p>
+        <p style="font-size: 1.1rem; margin: 20px 0;">Two hands play different roles your left hand controls the chord (harmony), and your right hand layers the melody on top. Move both hands together, and you create a full, rich musical piece. The speed of your movement adds natural dynamics, just like playing a real instrument.</p>
+    </div>
 
-  <div class="social-links">
-    <a href="https://www.linkedin.com/in/sweety-akter-6b11b0286" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    <a href="https://github.com/sweety-damn" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-    <a href="https://orcid.org/0009-0006-4238-9394" target="_blank" title="ORCID"><i class="fab fa-orcid"></i></a>
-    <a href="https://scholar.google.com/citations?user=HpidrKAAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-    <a href="https://www.facebook.com/alex.tanhaa.5/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-    <a href="mailto:sheikhtanha740@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-  </div>
+    <!-- Download & Install Section -->
+    <div style="margin-bottom: 50px; background: #ebf4ff; padding: 40px; border-radius: 16px; text-align: center;">
+        <h2 style="font-size: 2rem; color: #2b6cb0; margin-top: 0;">💾 Download & Install</h2>
+        <p style="font-size: 1.2rem; margin: 20px 0;">Getting started is super simple. Just follow this one step:</p>
+        <div style="background: white; padding: 30px; border-radius: 12px; margin: 30px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            <p style="font-size: 1.3rem; margin: 0 0 20px 0;"><strong>Step 1:</strong> Visit this link to download the application.</p>
+            <a href="https://github.com/joserodriguezmanrique1952/gesture-synth" style="display: inline-block; background: #2b6cb0; color: white; padding: 16px 35px; border-radius: 50px; font-size: 1.1rem; font-weight: bold; text-decoration: none; box-shadow: 0 5px 15px rgba(43, 108, 176, 0.4);">⬇️ Download gesture-synth</a>
+        </div>
+        <p style="font-size: 1.1rem; margin: 20px 0;">Once the download is finished, look in your "Downloads" folder and you'll see the gesture-synth file. Double-click it to run the application. The program will start instantly and your camera light will turn on, indicating it's ready to make music with you.</p>
+        <p style="font-size: 1.1rem; margin: 20px 0;">No complicated installation wizard, no serial keys, no configuration needed. Just download, open, and play.</p>
+    </div>
 
-  <a href="Sweety_Akter_CV.pdf" class="cv-btn" download><i class="fas fa-download"></i> <span data-i18n="hero_cv">Download CV</span></a>
-</header>
+    <!-- System Requirements Section -->
+    <div style="margin-bottom: 50px;">
+        <h2 style="font-size: 2rem; color: #4a5568; border-bottom: 3px solid #667eea; padding-bottom: 10px;">🖥️ System Requirements</h2>
+        <p style="font-size: 1.1rem; margin: 20px 0;">gesture-synth is designed to be light and flexible, but like any software, it has a few basic needs to run smoothly:</p>
+        <ul style="font-size: 1.1rem; list-style: none; padding-left: 0;">
+            <li style="margin: 10px 0; padding: 12px 15px; background: #f7fafc; border-radius: 8px;">🧠 <strong>Operating System:</strong> Windows 10 or Windows 11 (64-bit)</li>
+            <li style="margin: 10px 0; padding: 12px 15px; background: #f7fafc; border-radius: 8px;">📷 <strong>Camera:</strong> Any built-in or USB webcam with at least 720p resolution</li>
+            <li style="margin: 10px 0; padding: 12px 15px; background: #f7fafc; border-radius: 8px;">📀 <strong>Processor:</strong> Dual-core CPU 1.8 GHz or faster</li>
+            <li style="margin: 10px 0; padding: 12px 15px; background: #f7fafc; border-radius: 8px;">🖥️ <strong>RAM:</strong> 4 GB or more</li>
+            <li style="margin: 10px 0; padding: 12px 15px; background: #f7fafc; border-radius: 8px;">🎨 <strong>Graphics:</strong> Any graphics card that supports DirectX 10 or newer</li>
+            <li style="margin: 10px 0; padding: 12px 15px; background: #f7fafc; border-radius: 8px;">🔊 <strong>Audio:</strong> Any working speakers or headphones</li>
+        </ul>
+        <p style="font-size: 1.1rem; margin: 20px 0;">If your computer (or laptop) can run a video call and play a YouTube video comfortably, it will absolutely run gesture-synth without any issues.</p>
+    </div>
 
-<section id="about" class="content">
-  <h2><i class="fas fa-user"></i> <span data-i18n="about_title">About Me</span></h2>
-  <div class="about-grid">
-    <div class="about-text">
-      <p data-i18n="about_p1">
-        I am a biotechnology student at BRAC University, Bangladesh, with a strong research focus on bioinformatics, machine learning, and multi-omics integration. My work spans computational biology, antimicrobial resistance, cancer genomics, and precision medicine.
-      </p>
-      <p data-i18n="about_p2">
-        My current thesis involves developing a Graph Neural Network framework for patient similarity network integration to predict disease progression using multi-omics data. I am passionate about applying interpretable AI to solve real-world biomedical problems and am committed to advancing research in genomic medicine and therapeutic target discovery.
-      </p>
-      <p data-i18n="about_p3">
-        I serve as a Research Assistant at the Innovative Research Center and am an Associate Member of UNYSAB Bangladesh. I also serve as a peer reviewer for Briefings in Bioinformatics (Oxford University Press) and was selected for the GCI World 2026 AI & Data Science Programme at The University of Tokyo.
-      </p>
+    <!-- Tips For Best Experience Section -->
+    <div style="margin-bottom: 50px;">
+        <h2 style="font-size: 2rem; color: #4a5568; border-bottom: 3px solid #667eea; padding-bottom: 10px;">💡 Tips for the Best Experience</h2>
+        <ul style="font-size: 1.1rem; list-style: none; padding-left: 0;">
+            <li style="margin: 15px 0; padding: 15px 20px; background: #f7fafc; border-radius: 10px;">💡 <strong>Lighting:</strong> Sit in a well-lit room so your hands are clearly visible to the camera. Avoid sitting with your back to a bright window, as that casts a shadow on your hands.</li>
+            <li style="margin: 15px 0; padding: 15px 20px; background: #f7fafc; border-radius: 10px;">🕺 <strong>Distance:</strong> Keep yourself about 2-3 feet (60-90 cm) from the camera so your full hand movements are captured.</li>
+            <li style="margin: 15px 0; padding: 15px 20px; background: #f7fafc; border-radius: 10px;">🙌 <strong>Background:</strong> Choose a plain, uncluttered background to help the camera focus solely on your hands.</li>
+            <li style="margin: 15px 0; padding: 15px 20px; background: #f7fafc; border-radius: 10px;">🎵 <strong>Experiment:</strong> Try slow, wide movements versus quick, small movements. Different gestures create different moods in the music.</li>
+        </ul>
     </div>
-    <div class="about-info">
-      <div class="info-item"><i class="fas fa-map-marker-alt"></i> Mirpur, Dhaka, Bangladesh</div>
-      <div class="info-item"><i class="fas fa-graduation-cap"></i> BRAC University</div>
-      <div class="info-item"><i class="fas fa-flask"></i> Computational Biology Research</div>
-      <div class="info-item"><i class="fas fa-globe"></i> GCI World 2026 Scholar</div>
-      <div class="info-item"><i class="fas fa-envelope"></i> sheikhtanha740@gmail.com</div>
-      <div class="info-item"><i class="fas fa-envelope"></i> sweety.akter@g.bracu.ac.bd</div>
-      <div class="info-item"><i class="fas fa-phone"></i> +8801870783437</div>
-    </div>
-  </div>
-</section>
 
-<section id="education" class="content alt-bg">
-  <h2><i class="fas fa-graduation-cap"></i> <span data-i18n="edu_title">Education</span></h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-date">2023 – 2027 (Expected)</div>
-      <div class="timeline-content">
-        <h3>BSc in Biotechnology & Genetic Engineering</h3>
-        <p><strong>BRAC University</strong>, Dhaka, Bangladesh</p>
-        <p data-i18n="edu_coursework">Relevant Coursework: Bioinformatics, Molecular Biology, Genetics, Biostatistics, Computational Biology, Data Structures, Machine Learning Fundamentals.</p>
-      </div>
+    <!-- Troubleshooting Section -->
+    <div style="margin-bottom: 50px;">
+        <h2 style="font-size: 2rem; color: #4a5568; border-bottom: 3px solid #667eea; padding-bottom: 10px;">🔧 Having Trouble?</h2>
+        <div style="background: #fffaf0; padding: 30px; border-radius: 12px; border-left: 5px solid #ed8936;">
+            <p style="font-size: 1.1rem; margin: 0 0 15px 0;"><strong>Camera not working?</strong></p>
+            <p style="font-size: 1.1rem; margin: 0;">Make sure no other application (like Zoom, Teams, or your photo app) is using your camera right now. Close those programs and restart gesture-synth. Also, check your computer's privacy settings to make sure you've allowed app access to your camera.</p>
+        </div>
+        <div style="background: #fffaf0; padding: 30px; border-radius: 12px; border-left: 5px solid #ed8936; margin-top: 20px;">
+            <p style="font-size: 1.1rem; margin: 0 0 15px 0;"><strong>Sounds are distorted or cutting out?</strong></p>
+            <p style="font-size: 1.1rem; margin: 0;">Check your system volume and your speaker volume. If it sounds too loud, simply lower the volume. For best audio quality, use speakers rather than laptop built-in audio, but both will work perfectly fine.</p>
+        </div>
+        <div style="background: #fffaf0; padding: 30px; border-radius: 12px; border-left: 5px solid #ed8936; margin-top: 20px;">
+            <p style="font-size: 1.1rem; margin: 0 0 15px 0;"><strong>My hands are not being detected properly?</strong></p>
+            <p style="font-size: 1.1rem; margin: 0;">Ensure your hands are entirely visible in the camera frame. Try to avoid wearing long sleeves that cover your wrists, and take off any gloves. Good lighting is the number one fix for this issue.</p>
+        </div>
     </div>
-    <div class="timeline-item">
-      <div class="timeline-date">2026 (Selected)</div>
-      <div class="timeline-content">
-        <h3>GCI World 2026 — AI & Data Science Programme</h3>
-        <p><strong>The University of Tokyo</strong> (Matsuo-Iwasawa Laboratory), Japan</p>
-        <p data-i18n="edu_gci">Selected from applicants across 100+ countries.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section id="experience" class="content">
-  <h2><i class="fas fa-briefcase"></i> <span data-i18n="exp_title">Experience</span></h2>
-
-  <div class="exp-item">
-    <div class="exp-header">
-      <div>
-        <h3>Peer Reviewer</h3>
-        <p class="exp-org">Briefings in Bioinformatics · Oxford University Press</p>
-      </div>
-      <span class="exp-date">Aug 2026 – Present</span>
-    </div>
-    <p data-i18n="exp_reviewer">
-      Serving as a peer reviewer for Briefings in Bioinformatics, a Q1 journal (Impact Factor: 9.5) published by Oxford University Press, specializing in computational biology, bioinformatics, and biomedical research.
-    </p>
-    <ul>
-      <li>Critically evaluated manuscripts on AI and deep learning applications in antimicrobial peptide discovery</li>
-      <li>Assessed methodological rigor, experimental design, statistical analysis, and scientific novelty</li>
-      <li>Provided detailed, constructive feedback to authors to improve manuscript quality</li>
-      <li>Recommended editorial decisions based on technical merit and significance</li>
-    </ul>
-  </div>
-
-  <div class="exp-item">
-    <div class="exp-header">
-      <div>
-        <h3>Research Assistant</h3>
-        <p class="exp-org">Innovative Research Center (IRC), Dhaka</p>
-      </div>
-      <span class="exp-date">Oct 2025 – Present</span>
-    </div>
-    <p data-i18n="exp_ra">
-      Contributing to ongoing research projects through literature searches, data organization, and collaborative analysis. Building practical research experience in computational biology and bioinformatics workflows.
-    </p>
-  </div>
-
-  <div class="exp-item">
-    <div class="exp-header">
-      <div>
-        <h3>Research Intern</h3>
-        <p class="exp-org">Innovative Research Center (IRC)</p>
-      </div>
-      <span class="exp-date">Jun 2025 – Nov 2025</span>
-    </div>
-  </div>
-
-  <div class="exp-item">
-    <div class="exp-header">
-      <div>
-        <h3>Campus Ambassador</h3>
-        <p class="exp-org">DeepBio Limited</p>
-      </div>
-      <span class="exp-date">Apr 2026 – Present</span>
-    </div>
-    <p data-i18n="exp_deepbio">
-      Promoting knowledge about bioinformatics and AI in life sciences among university students.
-    </p>
-  </div>
-
-  <div class="exp-item">
-    <div class="exp-header">
-      <div>
-        <h3>Campus Ambassador</h3>
-        <p class="exp-org">Dawn of Bioinformatics Limited</p>
-      </div>
-      <span class="exp-date">Sep 2025 – Present</span>
-    </div>
-  </div>
-
-  <div class="exp-item">
-    <div class="exp-header">
-      <div>
-        <h3>Associate Member</h3>
-        <p class="exp-org">United Nations Youth and Students Association of Bangladesh (UNYSAB)</p>
-      </div>
-      <span class="exp-date">Jul 2024 – Oct 2025</span>
-    </div>
-  </div>
-</section>
-
-<section id="research" class="content alt-bg">
-  <h2><i class="fas fa-flask"></i> <span data-i18n="res_title">Research</span></h2>
-
-  <div class="research-item">
-    <div class="research-header">
-      <h3>Graph Neural Network Framework for Patient Similarity Network Integration</h3>
-      <span class="research-venue">Undergraduate Thesis</span>
-    </div>
-    <p data-i18n="res_thesis">
-      Developing a Graph Neural Network framework to integrate patient similarity networks for predicting disease progression using multi-omics data. The project aims to improve interpretability and predictive accuracy in genomic medicine.
-    </p>
-  </div>
-
-  <div class="research-item">
-    <div class="research-header">
-      <h3>Bayesian Beta-Mixture Model for Clonal Evolution Inference</h3>
-      <span class="research-venue">IEEE BECITHCON 2026</span>
-    </div>
-    <p><strong>Tools:</strong> Python, PyMC, NumPy, Matplotlib, SciPy</p>
-    <p data-i18n="res_bayes">
-      Developed a hierarchical Bayesian Beta-Mixture model to infer clonal evolution patterns from high-dimensional DNA methylation data in haematological cancers. Implemented MCMC sampling for posterior inference and validated against simulated datasets.
-    </p>
-  </div>
-
-  <div class="research-item">
-    <div class="research-header">
-      <h3>Independent Validation of ML Model for AMR Prediction</h3>
-      <span class="research-venue">Springer CCIS · SEMIT 2026</span>
-    </div>
-    <p><strong>Tools:</strong> Python, Scikit-learn, XGBoost, Pandas, SHAP</p>
-    <p data-i18n="res_amr">
-      Built and independently validated a machine learning framework for antimicrobial resistance risk prediction using multi-omics data from 18,916 bacterial isolates. Identified key genomic features driving resistance through SHAP-based interpretability analysis.
-    </p>
-  </div>
-
-  <div class="research-item">
-    <div class="research-header">
-      <h3>ML-Based Patient Stratification in EGFR-Mutant Lung Adenocarcinoma</h3>
-      <span class="research-venue">Springer CCIS · SEMIT 2026</span>
-    </div>
-    <p><strong>Tools:</strong> Python, Scikit-learn, PCA, t-SNE, UMAP</p>
-    <p data-i18n="res_egfr">
-      Implemented an integrative multi-omics machine learning framework combining genomics, transcriptomics, and epigenomics data to stratify patients with EGFR-mutant lung adenocarcinoma.
-    </p>
-  </div>
-
-  <div class="research-item">
-    <div class="research-header">
-      <h3>CRISPR-Cas9 Guide RNA Design for TP53 R175H Mutation</h3>
-      <span class="research-venue">Preprint · OSF</span>
-    </div>
-    <p data-i18n="res_crispr">
-      Integrative computational design and off-target profiling of a CRISPR-Cas9 guide RNA for precision targeting of the TP53 R175H mutation.
-    </p>
-  </div>
-
-  <div class="research-item">
-    <div class="research-header">
-      <h3>Deep Learning-Driven De Novo Design of Antimicrobial Peptides</h3>
-      <span class="research-venue">Preprint · OSF</span>
-    </div>
-    <p data-i18n="res_amp">
-      Systematic review of architectures, serum conditions, and activity retention for deep learning-driven de novo design of antimicrobial peptides active in human serum.
-    </p>
-  </div>
-</section>
-
-<section id="publications" class="content">
-  <h2><i class="fas fa-book"></i> <span data-i18n="pub_title">Publications</span></h2>
-  <p class="section-intro" data-i18n="pub_intro">Selected peer-reviewed work in machine learning, computational biology, and bioinformatics.</p>
-
-  <div class="pub">
-    <span class="pub-year">2026</span>
-    <h3>Aplasia cutis congenita with fetus papyraceus (Frieden classification Type V) — systematic review of literature and reported cases from 1990 to 2025 with a proposed revised diagnostic criteria and management algorithm</h3>
-    <p><strong>European Journal of Pediatrics</strong> — DOI: 10.1007/s00431-026-07304-8</p>
-    <a href="https://doi.org/10.1007/s00431-026-07304-8" target="_blank">View Publication</a>
-  </div>
-
-  <div class="pub">
-    <span class="pub-year">2026</span>
-    <h3>Integrating AI-Driven Diagnostics in Arrhythmia Care to Enhance Patient Outcomes: A Narrative Review</h3>
-    <p><strong>Cureus</strong> — DOI: 10.7759/cureus.113138</p>
-    <a href="https://doi.org/10.7759/cureus.113138" target="_blank">View Publication</a>
-  </div>
-
-  <div class="pub">
-    <span class="pub-year">2026</span>
-    <h3>Fetal Multicystic Dysplastic Kidney and Its Effect on Post-natal Quality of Life: A Literature Review</h3>
-    <p><strong>Cureus</strong> — DOI: 10.7759/cureus.110488</p>
-    <a href="https://doi.org/10.7759/cureus.110488" target="_blank">View Publication</a>
-  </div>
-
-  <div class="pub">
-    <span class="pub-year">2027</span>
-    <h3>Independent Validation and Clinical Risk Stratification of a Pre-Trained k-mer Based Machine Learning Model for Antimicrobial Resistance Prediction Using 18,916 Bacterial Isolates</h3>
-    <p><strong>Springer CCIS</strong> — DOI: 10.1007/978-3-032-39711-9_24</p>
-    <a href="https://doi.org/10.1007/978-3-032-39711-9_24" target="_blank">View Publication</a>
-  </div>
-
-  <div class="pub">
-    <span class="pub-year">2027</span>
-    <h3>Machine Learning-Based Patient Stratification Using Multi-omics Data in EGFR-Mutant Lung Adenocarcinoma: A Systematic Review and Framework Proposal</h3>
-    <p><strong>Springer CCIS</strong> — DOI: 10.1007/978-3-032-39711-9_23</p>
-    <a href="https://doi.org/10.1007/978-3-032-39711-9_23" target="_blank">View Publication</a>
-  </div>
-
-  <div class="pub">
-    <span class="pub-year">2026</span>
-    <h3>Deep Learning–Driven De Novo Design of Antimicrobial Peptides Active in Human Serum: A Systematic Review of Architectures, Serum Conditions, and Activity Retention</h3>
-    <p><strong>OSF Preprint</strong> — DOI: 10.17605/OSF.IO/8ZE2Q</p>
-    <a href="https://doi.org/10.17605/OSF.IO/8ZE2Q" target="_blank">View Preprint</a>
-  </div>
-
-  <div class="pub">
-    <span class="pub-year">2026</span>
-    <h3>Precision Targeting of the TP53 R175H Mutation: Integrative Computational Design and Off-Target Profiling of a CRISPR-Cas9 Guide RNA</h3>
-    <p><strong>OSF Preprint</strong> — DOI: 10.17605/OSF.IO/58TPC</p>
-    <a href="https://doi.org/10.17605/OSF.IO/58TPC" target="_blank">View Preprint</a>
-  </div>
-
-  <p class="more"><a href="https://orcid.org/0009-0006-4238-9394" target="_blank" data-i18n="pub_more">See all publications on ORCID</a></p>
-</section>
-
-<section id="skills" class="content alt-bg">
-  <h2><i class="fas fa-cogs"></i> <span data-i18n="skill_title">Skills</span></h2>
-  <div class="skills-grid">
-    <div class="skill-card">
-      <i class="fas fa-dna"></i>
-      <h3>Bioinformatics Pipelines</h3>
-      <p>Pipeline development, NGS analysis, sequence alignment, genome annotation</p>
-    </div>
-    <div class="skill-card">
-      <i class="fas fa-code"></i>
-      <h3>Programming</h3>
-      <p>Python, R, Perl, SQL, Git/GitHub, Bash</p>
-    </div>
-    <div class="skill-card">
-      <i class="fas fa-brain"></i>
-      <h3>Machine Learning</h3>
-      <p>Deep Learning, Graph Neural Networks, Bayesian Modelling, XGBoost, Scikit-learn</p>
-    </div>
-    <div class="skill-card">
-      <i class="fas fa-chart-bar"></i>
-      <h3>Data Analysis</h3>
-      <p>Statistical analysis, data visualization, MCMC, SHAP</p>
-    </div>
-    <div class="skill-card">
-      <i class="fas fa-tools"></i>
-      <h3>Bioinformatics Tools</h3>
-      <p>BLAST, GATK, PyRx, Discovery Studio</p>
-    </div>
-    <div class="skill-card">
-      <i class="fas fa-cloud"></i>
-      <h3>Cloud Computing</h3>
-      <p>AWS, Google Cloud (basics)</p>
-    </div>
-    <div class="skill-card">
-      <i class="fas fa-comments"></i>
-      <h3>Communication & Leadership</h3>
-      <p>Scientific writing, peer review, team collaboration</p>
-    </div>
-    <div class="skill-card">
-      <i class="fas fa-language"></i>
-      <h3>Languages</h3>
-      <p>Bengali (Native), English (Fluent), German (Basic)</p>
-    </div>
-  </div>
-</section>
-
-<section id="awards" class="content">
-  <h2><i class="fas fa-trophy"></i> <span data-i18n="award_title">Awards & Achievements</span></h2>
-  <div class="awards-list">
-    <div class="award-item">
-      <i class="fas fa-award"></i>
-      <div>
-        <h3>Duke of Edinburgh Award — Bronze</h3>
-        <p>Completed the Bronze level of the International Award for Young People.</p>
-        <img src="duke-bronze.jpg" alt="Duke of Edinburgh Bronze Award" class="award-img">
-      </div>
-    </div>
-    <div class="award-item">
-      <i class="fas fa-trophy"></i>
-      <div>
-        <h3>University Sports Award</h3>
-        <p>Recognized by the university for outstanding achievement and dedication in sports.</p>
-        <img src="sports-award.jpg" alt="University Sports Award" class="award-img">
-      </div>
-    </div>
-    <div class="award-item">
-      <i class="fas fa-globe"></i>
-      <div>
-        <h3>GCI World 2026 Scholar</h3>
-        <p>Selected for the AI & Data Science Programme at The University of Tokyo from applicants across 100+ countries.</p>
-      </div>
-    </div>
-    <div class="award-item">
-      <i class="fas fa-pen-fancy"></i>
-      <div>
-        <h3>Peer Reviewer — Briefings in Bioinformatics</h3>
-        <p>Invited peer reviewer for Oxford University Press journal.</p>
-      </div>
-    </div>
-    <div class="award-item">
-      <i class="fas fa-lightbulb"></i>
-      <div>
-        <h3>CRISPR-Cas9 Idea Finalist</h3>
-        <p>Finalist in the CRISPR-Cas9 Idea Competition at BRAC University.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="certifications" class="content alt-bg">
-  <h2><i class="fas fa-certificate"></i> <span data-i18n="cert_title">Certifications & Courses</span></h2>
-  <div class="cert-grid">
-    <div class="cert-card">
-      <h3>Bioinformatics Specialization</h3>
-      <p>University of Geneva via Coursera</p>
-    </div>
-    <div class="cert-card">
-      <h3>Bioinformatics Course</h3>
-      <p>Plasma Cell Research</p>
-    </div>
-    <div class="cert-card">
-      <h3>CRISPR-Cas9 Idea Finalist</h3>
-      <p>BRAC University</p>
-    </div>
-    <div class="cert-card">
-      <h3>Duke of Edinburgh Award</h3>
-      <p>Bronze Level</p>
-    </div>
-    <div class="cert-card">
-      <h3>Leadership Programs</h3>
-      <p>Harvard, UNICEF, HP LIFE</p>
-    </div>
-    <div class="cert-card">
-      <h3>Medi Hack</h3>
-      <p>Devpost — Issued Aug 2025</p>
-    </div>
-    <div class="cert-card">
-      <h3>International MUN</h3>
-      <p>Participant — Oct 2024</p>
-    </div>
-  </div>
-</section>
-
-<section id="extracurricular" class="content">
-  <h2><i class="fas fa-users"></i> <span data-i18n="extra_title">Extracurricular Activities</span></h2>
-  <div class="extra-list">
-    <div class="extra-item">
-      <h3>Campus Ambassador — DeepBio Limited</h3>
-      <p>Promoting bioinformatics and AI awareness in life sciences among university students.</p>
-    </div>
-    <div class="extra-item">
-      <h3>Campus Ambassador — Dawn of Bioinformatics Limited</h3>
-      <p>Engaging students with bioinformatics resources and career pathways.</p>
-    </div>
-    <div class="extra-item">
-      <h3>Associate Member — UNYSAB Bangladesh</h3>
-      <p>United Nations Youth and Students Association of Bangladesh.</p>
-    </div>
-    <div class="extra-item">
-      <h3>International MUN Participant</h3>
-      <p>Model United Nations — 2024</p>
-    </div>
-    <div class="extra-item">
-      <h3>Leadership Programs</h3>
-      <p>Harvard, UNICEF, HP LIFE</p>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="content alt-bg">
-  <h2><i class="fas fa-paper-plane"></i> <span data-i18n="contact_title">Get in Touch</span></h2>
-  <p class="section-intro" data-i18n="contact_intro">I am open to research collaborations, graduate opportunities, and quantitative finance roles.</p>
-  <div class="contact-grid">
-    <a href="mailto:sheikhtanha740@gmail.com" class="contact-card">
-      <i class="fas fa-envelope"></i>
-      <h3>Email</h3>
-      <p>sheikhtanha740@gmail.com</p>
-    </a>
-    <a href="mailto:sweety.akter@g.bracu.ac.bd" class="contact-card">
-      <i class="fas fa-envelope"></i>
-      <h3>University Email</h3>
-      <p>sweety.akter@g.bracu.ac.bd</p>
-    </a>
-    <a href="tel:+8801870783437" class="contact-card">
-      <i class="fas fa-phone"></i>
-      <h3>Phone</h3>
-      <p>+880 1870 783437</p>
-    </a>
-    <a href="https://www.linkedin.com/in/sweety-akter-6b11b0286" target="_blank" class="contact-card">
-      <i class="fab fa-linkedin"></i>
-      <h3>LinkedIn</h3>
-      <p>sweety-akter</p>
-    </a>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 Sweety Akter · Computational Biology · Machine Learning · Bioinformatics</p>
-  <p class="footer-sub">Mirpur, Dhaka, Bangladesh</p>
-</footer>
-
-<script src="script.js"></script>
-</body>
-</html>
+    <!-- Frequently Asked Questions -->
+    <div style="margin-bottom: 50px;">
+        <h2 style="font-size: 2rem; color: #4a5568; border-bottom: 3px solid #667eea; padding-bottom: 10px;">❓ Frequently Asked Questions</h2>
+        <div style="margin: 20px 0;">
+            <p style="font-size: 1.1rem; font-weight: bold; margin: 20px 0 5px 0;">Q: Do I need to know how to play piano or any musical instrument?</p>
+            <p style="font-size: 1.1rem; margin: 5px 0;">A: Absolutely not! gesture-synth is designed for everyone. Just move your hands in interesting ways, and the sounds will always be harmonious and beautiful.</p>
+        </div>
+        <div style="margin: 20px 0;">
+            <p style="font-size: 1.1rem; font-weight: bold; margin: 20px 0 5px 0;">Q: Does this app have any recordings that I can save and share?</p>
+            <p style="font-size
