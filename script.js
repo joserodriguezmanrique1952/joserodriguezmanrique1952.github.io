@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (soundToggle && bgAudio) {
     let soundOn = false;
-    bgAudio.volume = 0.3;
+    bgAudio.volume = 0.7;
 
     soundToggle.addEventListener('click', function () {
       console.log('Sound button clicked. soundOn =', soundOn);
