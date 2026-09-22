@@ -1,240 +1,444 @@
-/* ============================================
-   SWEETY AKTER — PORTFOLIO SCRIPT
-   Language Switch | Theme Toggle | Background Sound
-   ============================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-// ===== TRANSLATIONS =====
-const translations = {
-  en: {
-    nav_about: "About",
-    nav_education: "Education",
-    nav_experience: "Experience",
-    nav_research: "Research",
-    nav_publications: "Publications",
-    nav_skills: "Skills",
-    nav_awards: "Awards",
-    nav_contact: "Contact",
-    hero_subtitle: "Computational Biology · Machine Learning · Bioinformatics",
-    hero_tagline: "Biotechnology student at BRAC University · Peer Reviewer, Oxford University Press · GCI World 2026 Scholar",
-    hero_cv: "Download CV",
-    about_title: "About Me",
-    about_p1: "I am a biotechnology student at BRAC University, Bangladesh, with a strong research focus on bioinformatics, machine learning, and multi-omics integration. My work spans computational biology, antimicrobial resistance, cancer genomics, and precision medicine.",
-    about_p2: "My current thesis involves developing a Graph Neural Network framework for patient similarity network integration to predict disease progression using multi-omics data. I am passionate about applying interpretable AI to solve real-world biomedical problems and am committed to advancing research in genomic medicine and therapeutic target discovery.",
-    about_p3: "I serve as a Research Assistant at the Innovative Research Center and am an Associate Member of UNYSAB Bangladesh. I also serve as a peer reviewer for Briefings in Bioinformatics (Oxford University Press) and was selected for the GCI World 2026 AI & Data Science Programme at The University of Tokyo.",
-    edu_title: "Education",
-    edu_coursework: "Relevant Coursework: Bioinformatics, Molecular Biology, Genetics, Biostatistics, Computational Biology, Data Structures, Machine Learning Fundamentals.",
-    edu_gci: "Selected from applicants across 100+ countries.",
-    exp_title: "Experience",
-    exp_reviewer: "Serving as a peer reviewer for Briefings in Bioinformatics, a Q1 journal (Impact Factor: 9.5) published by Oxford University Press, specializing in computational biology, bioinformatics, and biomedical research.",
-    exp_ra: "Contributing to ongoing research projects through literature searches, data organization, and collaborative analysis. Building practical research experience in computational biology and bioinformatics workflows.",
-    exp_deepbio: "Promoting knowledge about bioinformatics and AI in life sciences among university students.",
-    res_title: "Research",
-    res_thesis: "Developing a Graph Neural Network framework to integrate patient similarity networks for predicting disease progression using multi-omics data. The project aims to improve interpretability and predictive accuracy in genomic medicine.",
-    res_bayes: "Developed a hierarchical Bayesian Beta-Mixture model to infer clonal evolution patterns from high-dimensional DNA methylation data in haematological cancers. Implemented MCMC sampling for posterior inference and validated against simulated datasets.",
-    res_amr: "Built and independently validated a machine learning framework for antimicrobial resistance risk prediction using multi-omics data from 18,916 bacterial isolates. Identified key genomic features driving resistance through SHAP-based interpretability analysis.",
-    res_egfr: "Implemented an integrative multi-omics machine learning framework combining genomics, transcriptomics, and epigenomics data to stratify patients with EGFR-mutant lung adenocarcinoma.",
-    res_crispr: "Integrative computational design and off-target profiling of a CRISPR-Cas9 guide RNA for precision targeting of the TP53 R175H mutation.",
-    res_amp: "Systematic review of architectures, serum conditions, and activity retention for deep learning-driven de novo design of antimicrobial peptides active in human serum.",
-    pub_title: "Publications",
-    pub_intro: "Selected peer-reviewed work in machine learning, computational biology, and bioinformatics.",
-    pub_more: "See all publications on ORCID",
-    skill_title: "Skills",
-    award_title: "Awards & Achievements",
-    cert_title: "Certifications & Courses",
-    extra_title: "Extracurricular Activities",
-    contact_title: "Get in Touch",
-    contact_intro: "I am open to research collaborations, graduate opportunities, and quantitative finance roles."
-  },
-  de: {
-    nav_about: "Über mich",
-    nav_education: "Ausbildung",
-    nav_experience: "Erfahrung",
-    nav_research: "Forschung",
-    nav_publications: "Publikationen",
-    nav_skills: "Fähigkeiten",
-    nav_awards: "Auszeichnungen",
-    nav_contact: "Kontakt",
-    hero_subtitle: "Computational Biology · Maschinelles Lernen · Bioinformatik",
-    hero_tagline: "Biotechnologie-Studentin an der BRAC University · Peer Reviewer, Oxford University Press · GCI World 2026 Scholar",
-    hero_cv: "Lebenslauf herunterladen",
-    about_title: "Über mich",
-    about_p1: "Ich bin Biotechnologie-Studentin an der BRAC University, Bangladesch, mit Forschungsschwerpunkt auf Bioinformatik, maschinellem Lernen und Multi-Omics-Integration.",
-    about_p2: "Meine aktuelle Thesis befasst sich mit der Entwicklung eines Graph Neural Network Frameworks zur Integration von Patient-Ähnlichkeitsnetzwerken.",
-    about_p3: "Ich arbeite als Research Assistant am Innovative Research Center und bin assoziiertes Mitglied von UNYSAB Bangladesh. Außerdem bin ich Peer Reviewer für Briefings in Bioinformatics (Oxford University Press).",
-    edu_title: "Ausbildung",
-    edu_coursework: "Relevante Kurse: Bioinformatik, Molekularbiologie, Genetik, Biostatistik, Computational Biology.",
-    edu_gci: "Ausgewählt aus Bewerbern aus über 100 Ländern.",
-    exp_title: "Erfahrung",
-    res_title: "Forschung",
-    pub_title: "Publikationen",
-    pub_intro: "Ausgewählte peer-reviewte Arbeiten.",
-    pub_more: "Alle Publikationen auf ORCID",
-    skill_title: "Fähigkeiten",
-    award_title: "Auszeichnungen",
-    cert_title: "Zertifikate & Kurse",
-    extra_title: "Außerschulische Aktivitäten",
-    contact_title: "Kontakt aufnehmen",
-    contact_intro: "Ich bin offen für Forschungskooperationen und Graduiertenmöglichkeiten."
-  },
-  fr: {
-    nav_about: "À propos",
-    nav_education: "Formation",
-    nav_experience: "Expérience",
-    nav_research: "Recherche",
-    nav_publications: "Publications",
-    nav_skills: "Compétences",
-    nav_awards: "Distinctions",
-    nav_contact: "Contact",
-    hero_subtitle: "Biologie Computationnelle · Apprentissage Automatique · Bioinformatique",
-    hero_tagline: "Étudiante en biotechnologie à BRAC University · Réviseure, Oxford University Press · GCI World 2026 Scholar",
-    hero_cv: "Télécharger le CV",
-    about_title: "À propos de moi",
-    about_p1: "Je suis étudiante en biotechnologie à BRAC University, au Bangladesh, avec un fort accent sur la bioinformatique, l'apprentissage automatique et l'intégration multi-omique.",
-    about_p2: "Ma thèse actuelle porte sur le développement d'un cadre de réseau de neurones graphiques pour l'intégration des réseaux de similarité des patients.",
-    about_p3: "Je travaille comme assistante de recherche à l'Innovative Research Center et suis membre associée de UNYSAB Bangladesh.",
-    edu_title: "Formation",
-    edu_coursework: "Cours pertinents : Bioinformatique, Biologie Moléculaire, Génétique, Biostatistique.",
-    edu_gci: "Sélectionnée parmi des candidats de plus de 100 pays.",
-    exp_title: "Expérience",
-    res_title: "Recherche",
-    pub_title: "Publications",
-    pub_intro: "Travaux sélectionnés évalués par les pairs.",
-    pub_more: "Toutes les publications sur ORCID",
-    skill_title: "Compétences",
-    award_title: "Distinctions",
-    cert_title: "Certifications & Cours",
-    extra_title: "Activités parascolaires",
-    contact_title: "Me contacter",
-    contact_intro: "Je suis ouverte aux collaborations de recherche et aux opportunités d'études supérieures."
-  },
-  no: {
-    nav_about: "Om meg",
-    nav_education: "Utdanning",
-    nav_experience: "Erfaring",
-    nav_research: "Forskning",
-    nav_publications: "Publikasjoner",
-    nav_skills: "Ferdigheter",
-    nav_awards: "Priser",
-    nav_contact: "Kontakt",
-    hero_subtitle: "Beregningsbiologi · Maskinlæring · Bioinformatikk",
-    hero_tagline: "Bioteknologistudent ved BRAC University · Fagfellevurderer, Oxford University Press · GCI World 2026 Scholar",
-    hero_cv: "Last ned CV",
-    about_title: "Om meg",
-    about_p1: "Jeg er en bioteknologistudent ved BRAC University, Bangladesh, med sterkt forskningsfokus på bioinformatikk, maskinlæring og multi-omics-integrasjon.",
-    about_p2: "Min nåværende avhandling innebærer å utvikle et Graph Neural Network-rammeverk for integrasjon av pasientlikhetsnettverk.",
-    about_p3: "Jeg jobber som forskningsassistent ved Innovative Research Center og er assosiert medlem av UNYSAB Bangladesh.",
-    edu_title: "Utdanning",
-    edu_coursework: "Relevante emner: Bioinformatikk, Molekylærbiologi, Genetikk, Biostatistikk.",
-    edu_gci: "Valgt ut blant søkere fra over 100 land.",
-    exp_title: "Erfaring",
-    res_title: "Forskning",
-    pub_title: "Publikasjoner",
-    pub_intro: "Utvalgte fagfellevurderte arbeider.",
-    pub_more: "Alle publikasjoner på ORCID",
-    skill_title: "Ferdigheter",
-    award_title: "Priser",
-    cert_title: "Sertifiseringer & Kurs",
-    extra_title: "Fritidsaktiviteter",
-    contact_title: "Ta kontakt",
-    contact_intro: "Jeg er åpen for forskningssamarbeid og muligheter for videreutdanning."
-  }
-};
+:root {
+  --primary: #1a1a2e;
+  --accent: #4fc3f7;
+  --accent-dark: #0288d1;
+  --text: #2c2c2c;
+  --text-light: #666;
+  --bg: #f7f9fc;
+  --bg-alt: #ffffff;
+  --card: #ffffff;
+  --border: #e1e8f0;
+  --nav-bg: #1a1a2e;
+  --nav-text: #cfd8e3;
+  --hero-bg: linear-gradient(135deg, rgba(26,26,46,0.92) 0%, rgba(22,33,62,0.92) 50%, rgba(15,52,96,0.92) 100%);
+}
 
-// ===== INITIALIZE ON PAGE LOAD =====
-document.addEventListener('DOMContentLoaded', function () {
+[data-theme="dark"] {
+  --primary: #e8eef7;
+  --accent: #4fc3f7;
+  --accent-dark: #81d4fa;
+  --text: #d8dee9;
+  --text-light: #9aa5b1;
+  --bg: #0f1419;
+  --bg-alt: #161b22;
+  --card: #1c2430;
+  --border: #2a3441;
+  --nav-bg: #0a0e13;
+  --nav-text: #b0bcc9;
+  --hero-bg: linear-gradient(135deg, rgba(10,14,19,0.94) 0%, rgba(15,20,25,0.94) 50%, rgba(20,30,45,0.94) 100%);
+}
 
-  console.log('Portfolio script loaded');
+html { scroll-behavior: smooth; }
 
-  // ===== LANGUAGE SWITCH =====
-  const langSelect = document.getElementById('langSelect');
-  if (langSelect) {
-    langSelect.addEventListener('change', function (e) {
-      const lang = e.target.value;
-      console.log('Language switched to:', lang);
-      document.querySelectorAll('[data-i18n]').forEach(function (el) {
-        const key = el.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-          el.textContent = translations[lang][key];
-        }
-      });
-      document.documentElement.lang = lang;
-    });
-  }
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  transition: background 0.4s, color 0.4s;
+}
 
-  // ===== THEME TOGGLE =====
-  const themeToggle = document.getElementById('themeToggle');
-  const html = document.documentElement;
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  html.setAttribute('data-theme', savedTheme);
+/* BACKGROUND LAYER */
+.bg-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0.12;
+  pointer-events: none;
+}
 
-  function updateThemeIcon(theme) {
-    if (!themeToggle) return;
-    const icon = themeToggle.querySelector('i');
-    if (icon) {
-      icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-    }
-  }
-  updateThemeIcon(savedTheme);
+[data-theme="dark"] .bg-layer { opacity: 0.18; }
 
-  if (themeToggle) {
-    themeToggle.addEventListener('click', function () {
-      const current = html.getAttribute('data-theme');
-      const next = current === 'light' ? 'dark' : 'light';
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-      updateThemeIcon(next);
-      console.log('Theme switched to:', next);
-    });
-  }
+/* TOP CONTROLS */
+.top-controls {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 200;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.ctrl-btn {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.ctrl-btn:hover { background: var(--accent); color: var(--nav-bg); }
 
-  // ===== BACKGROUND SOUND =====
-  const soundToggle = document.getElementById('soundToggle');
-  const bgAudio = document.getElementById('bgAudio');
+.volume-slider {
+  width: 90px;
+  height: 6px;
+  cursor: pointer;
+  accent-color: var(--accent);
+  background: transparent;
+  margin-left: 0.3rem;
+}
 
-  console.log('soundToggle found:', !!soundToggle);
-  console.log('bgAudio found:', !!bgAudio);
+/* NAVIGATION */
+nav {
+  background: var(--nav-bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+.logo { color: #fff; font-size: 1.3rem; font-weight: 700; text-decoration: none; }
+nav ul { list-style: none; display: flex; gap: 1.3rem; flex-wrap: wrap; }
+nav a {
+  color: var(--nav-text);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+nav a:hover { color: var(--accent); }
 
-  if (!soundToggle) {
-    console.error('ERROR: soundToggle button not found in HTML');
-  }
-  if (!bgAudio) {
-    console.error('ERROR: bgAudio element not found in HTML');
-  }
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 5rem 1.5rem 4rem;
+  background: var(--hero-bg);
+  color: #fff;
+  position: relative;
+}
+.profile-pic {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--accent);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 30px rgba(79,195,247,0.35);
+}
+.hero h1 { font-size: 2.6rem; margin-bottom: 0.5rem; }
+.subtitle { color: var(--accent); margin-bottom: 0.8rem; font-size: 1.1rem; font-weight: 500; }
+.tagline { color: #b0c4de; margin-bottom: 2rem; font-size: 0.95rem; }
 
-  if (soundToggle && bgAudio) {
-    let soundOn = false;
-    bgAudio.volume = 0.7; // 70% volume
+.social-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.social-links a {
+  color: #fff;
+  font-size: 1.7rem;
+  transition: transform 0.3s, color 0.3s;
+}
+.social-links a:hover { color: var(--accent); transform: translateY(-4px); }
 
-    // Volume slider
-    const volumeSlider = document.getElementById('volumeSlider');
-    if (volumeSlider) {
-      volumeSlider.addEventListener('input', function () {
-        bgAudio.volume = parseFloat(this.value);
-        console.log('Volume set to:', bgAudio.volume);
-      });
-    }
+.cv-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #1a1a2e;
+  padding: 0.85rem 2rem;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.cv-btn:hover { background: #81d4fa; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(79,195,247,0.4); }
 
-    soundToggle.addEventListener('click', function () {
-      console.log('Sound button clicked. soundOn =', soundOn);
-      const icon = soundToggle.querySelector('i');
+/* CONTENT SECTIONS */
+.content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+.alt-bg { background: var(--bg-alt); }
 
-      if (!soundOn) {
-        bgAudio.play()
-          .then(function () {
-            soundOn = true;
-            if (icon) icon.className = 'fas fa-volume-up';
-            console.log('Music is playing');
-          })
-          .catch(function (err) {
-            console.error('Audio play failed:', err);
-            alert('Could not play audio.\nError: ' + err.message);
-          });
-      } else {
-        bgAudio.pause();
-        soundOn = false;
-        if (icon) icon.className = 'fas fa-volume-mute';
-        console.log('Music paused');
-      }
-    });
-  }
-});
+.content h2 {
+  font-size: 1.9rem;
+  color: var(--primary);
+  margin-bottom: 2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 3px solid var(--accent);
+  display: inline-block;
+}
+.content h2 i { color: var(--accent); margin-right: 0.5rem; }
+.section-intro { color: var(--text-light); margin-bottom: 2rem; }
+
+/* ABOUT */
+.about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start; }
+.about-text p { margin-bottom: 1.2rem; font-size: 1.02rem; }
+.about-info {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  position: sticky;
+  top: 100px;
+}
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+  word-break: break-all;
+}
+.info-item:last-child { border-bottom: none; }
+.info-item i { color: var(--accent); font-size: 1.1rem; width: 20px; flex-shrink: 0; }
+
+/* TIMELINE */
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--accent);
+  border-radius: 3px;
+}
+.timeline-item { position: relative; margin-bottom: 2.5rem; }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.45rem; top: 0.5rem;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--card);
+  box-shadow: 0 0 0 3px var(--accent);
+}
+.timeline-date { color: var(--accent-dark); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.4rem; }
+.timeline-content {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.06);
+}
+.timeline-content h3 { color: var(--primary); margin-bottom: 0.5rem; font-size: 1.15rem; }
+.timeline-content p { color: var(--text-light); font-size: 0.95rem; }
+
+/* EXPERIENCE */
+.exp-item {
+  background: var(--card);
+  padding: 1.8rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  border-left: 4px solid var(--accent);
+}
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.exp-header h3 { color: var(--primary); font-size: 1.15rem; }
+.exp-org { color: var(--text-light); font-size: 0.92rem; }
+.exp-date {
+  background: var(--accent);
+  color: #1a1a2e;
+  padding: 0.25rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.exp-item ul { margin-left: 1.5rem; margin-top: 0.8rem; }
+.exp-item li { font-size: 0.92rem; color: var(--text-light); margin-bottom: 0.4rem; }
+
+/* RESEARCH */
+.research-item {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  border-left: 4px solid var(--accent);
+  transition: transform 0.3s;
+}
+.research-item:hover { transform: translateX(5px); }
+.research-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+}
+.research-header h3 { color: var(--primary); font-size: 1.1rem; }
+.research-venue {
+  background: var(--accent);
+  color: #1a1a2e;
+  padding: 0.25rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.research-item p { font-size: 0.95rem; color: var(--text-light); margin-bottom: 0.6rem; }
+
+/* PUBLICATIONS */
+.pub {
+  background: var(--card);
+  padding: 1.6rem 1.8rem;
+  border-radius: 10px;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+  border-left: 4px solid var(--accent);
+  position: relative;
+}
+.pub-year {
+  position: absolute;
+  top: 1.2rem; right: 1.5rem;
+  background: var(--nav-bg);
+  color: #fff;
+  padding: 0.2rem 0.7rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.pub h3 { color: var(--primary); font-size: 1.02rem; margin-bottom: 0.5rem; padding-right: 4rem; }
+.pub p { color: var(--text-light); font-size: 0.9rem; margin-bottom: 0.6rem; }
+.pub a { color: var(--accent-dark); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+.pub a:hover { text-decoration: underline; }
+.more { text-align: center; margin-top: 2rem; }
+.more a { color: var(--accent-dark); text-decoration: none; font-weight: 600; }
+
+/* SKILLS */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.3rem;
+}
+.skill-card {
+  background: var(--card);
+  padding: 1.8rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.3s;
+}
+.skill-card:hover { transform: translateY(-6px); }
+.skill-card i { font-size: 1.8rem; color: var(--accent); margin-bottom: 0.8rem; }
+.skill-card h3 { color: var(--primary); font-size: 1rem; margin-bottom: 0.6rem; }
+.skill-card p { color: var(--text-light); font-size: 0.9rem; }
+
+/* AWARDS */
+.awards-list { display: flex; flex-direction: column; gap: 1.2rem; }
+.award-item {
+  display: flex;
+  gap: 1.5rem;
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.05);
+  align-items: flex-start;
+}
+.award-item > i {
+  font-size: 1.6rem;
+  color: var(--accent);
+  background: rgba(79,195,247,0.12);
+  padding: 1rem;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+.award-item h3 { color: var(--primary); font-size: 1.05rem; margin-bottom: 0.3rem; }
+.award-item p { color: var(--text-light); font-size: 0.92rem; }
+.award-img {
+  margin-top: 0.8rem;
+  max-width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+/* CERTIFICATIONS */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+.cert-card {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+  border-top: 3px solid var(--accent);
+}
+.cert-card h3 { color: var(--primary); font-size: 1rem; margin-bottom: 0.4rem; }
+.cert-card p { color: var(--text-light); font-size: 0.88rem; }
+
+/* EXTRACURRICULAR */
+.extra-list { display: flex; flex-direction: column; gap: 1rem; }
+.extra-item {
+  background: var(--card);
+  padding: 1.4rem 1.8rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+  border-left: 4px solid var(--accent);
+}
+.extra-item h3 { color: var(--primary); font-size: 1rem; margin-bottom: 0.3rem; }
+.extra-item p { color: var(--text-light); font-size: 0.9rem; }
+
+/* CONTACT */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.3rem;
+}
+.contact-card {
+  background: var(--card);
+  padding: 1.8rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.3s;
+}
+.contact-card:hover { transform: translateY(-5px); }
+.contact-card i { font-size: 1.8rem; color: var(--accent); margin-bottom: 0.6rem; }
+.contact-card h3 { color: var(--primary); font-size: 1rem; margin-bottom: 0.3rem; }
+.contact-card p { color: var(--text-light); font-size: 0.85rem; word-break: break-word; }
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background: var(--nav-bg);
+  color: #8899aa;
+  font-size: 0.9rem;
+}
+.footer-sub { margin-top: 0.5rem; font-size: 0.82rem; color: #667788; }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav ul { gap: 0.7rem; font-size: 0.78rem; justify-content: center; }
+  .nav-container { flex-direction: column; gap: 0.8rem; }
+  .hero h1 { font-size: 1.9rem; }
+  .hero { padding: 3rem 1rem 2.5rem; }
+  .profile-pic { width: 130px; height: 130px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-info { position: static; }
+  .content { padding: 3rem 1rem; }
+  .content h2 { font-size: 1.5rem; }
+  .pub h3 { padding-right: 0; }
+  .pub-year { position: static; display: inline-block; margin-bottom: 0.5rem; }
+  .award-item { flex-direction: column; gap: 0.8rem; }
+  .top-controls { top: auto; bottom: 20px; right: 15px; }
+  .exp-header { flex-direction: column; }
+}
