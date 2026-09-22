@@ -203,7 +203,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (soundToggle && bgAudio) {
     let soundOn = false;
-    bgAudio.volume = 0.7;
+    bgAudio.volume = 0.7; // 70% volume
+
+    // Volume slider
+    const volumeSlider = document.getElementById('volumeSlider');
+    if (volumeSlider) {
+      volumeSlider.addEventListener('input', function () {
+        bgAudio.volume = parseFloat(this.value);
+        console.log('Volume set to:', bgAudio.volume);
+      });
+    }
 
     soundToggle.addEventListener('click', function () {
       console.log('Sound button clicked. soundOn =', soundOn);
